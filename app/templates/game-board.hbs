@@ -1,0 +1,24 @@
+<body>
+  <h1>Tic Tac Toe</h1>
+  <p class="playerText">Player {{if this.total 'X' 'O'}} Turn </p>
+  <div class="game">
+    <div class="small-board">
+      <div id="1" class="each-board" {{action handleClick model}}> </div>
+      <div id="2" class="each-board" {{action handleClick model}}></div>
+      <div id="3" class="each-board" {{action handleClick model}}></div>
+      <div id="4" class="each-board" {{action handleClick model}}></div>
+      <div id="5" class="each-board" {{action handleClick model}}></div>
+      <div id="6" class="each-board" {{action handleClick model}}></div>
+      <div id="7" class="each-board" {{action handleClick model}}></div>
+      <div id="8" class="each-board" {{action handleClick model}}></div>
+      <div id="9" class="each-board" {{action handleClick model}}></div>
+    </div>
+  </div>
+  <div class="endMessage hidden">
+    <h2>Game Over</h2>
+    <p> The winner is <span class="playerWin"> </span></p>
+    <button class="reset hidden button">Reset</button>
+  </div>
+</body>
+
+{{outlet}}

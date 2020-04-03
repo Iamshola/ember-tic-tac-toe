@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+body{
+  text-align: center;
+}
+/* h1{
+  text-align: center;
+} */
+
+.game {
+  display: flex;
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.small-board {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+
+.small-board div {
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid black;
+}
+
+
+.each-board{
+  font-size: 30px;
+}
+
+.hidden {
+  display: none!important;
+}
