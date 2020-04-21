@@ -1,6 +1,6 @@
 <body>
   <h1>Tic Tac Toe</h1>
-  <p class="playerText">Player {{if this.total 'X' 'O'}} Turn </p>
+  <p class="playerText">Player {{if this.playerTurn 'X' 'O'}} Turn </p>
   <div class="game">
     <div class="small-board">
       <div id="1" class="each-board" {{action handleClick model}}> </div>
