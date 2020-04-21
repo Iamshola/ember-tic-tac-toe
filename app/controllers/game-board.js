@@ -4,13 +4,13 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GameBoardController extends Controller {
 
-  // false = O 
   @tracked total = false;
 
   constructor() {
     super(...arguments);
     this.playerX = []
     this.playerO = []
+    this.winner = ''
     this.winningSolution = [
     ['1', '2', '3'], ['4', '5', '6'],
     ['7', '8', '9'], ['1', '4', '7'],
@@ -20,10 +20,7 @@ export default class GameBoardController extends Controller {
  }
 
   winLogic(){
-    if (this.win == true) {
-      alert('the winner is ' + this.total)
-    }
-    
+    return this.winner == 'X' ? alert('the winner is O') : alert('the winner is X')
   }
 
   @action handleClick(){
@@ -38,24 +35,18 @@ export default class GameBoardController extends Controller {
      event.target.innerHTML = this.total === 'true' ? 'X' : 'O'
    }
 
-    if (this.winningSolution.map(x => x.every(v => this.playerO.includes(v))).includes(true)) {
-      this.win = true
+    if (this.winningSolution.map(x => x.every(v => this.playerO.includes(v))).includes(true) && this.playerO.length == 3) {
+      this.winner = 'O'
       this.playerO = []
+      setTimeout(this.winLogic, 300)
+  
     }
-    if (this.winningSolution.map(x => x.every(v => this.playerX.includes(v))).includes(true)) {
-      this.win = true
+    if (this.winningSolution.map(x => x.every(v => this.playerX.includes(v))).includes(true) && this.playerX.length == 3) {
+      this.winner = 'X'
       this.playerX = []
+      setTimeout(this.winLogic, 300)
     }
-    
-    this.winLogic()
-
   }
-
-
-
-
-
-
 }
 
 
